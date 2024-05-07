@@ -5,8 +5,7 @@ export default function Welcome({ name = "Guest", age }) {
       <h1>
         Welcome,<strong>{name}</strong>!
       </h1>
-      {/* <p>Your age is {age}!</p> */}
-      {age && age > 18 && age < 65 && name == "John" && <Age age={age} />}
+      <Age age={age} />
     </div>
   );
 }
