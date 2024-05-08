@@ -5,6 +5,7 @@ import Messaggio from "./Messaggio";
 import Welcome from "./Welcome";
 import AlertClock from "./AlertClock";
 import Clock from "./Clock";
+import MouseClicker from "./MouseClicker";
 
 function App() {
   // const [inputValue, setInputValue] = useState("");
@@ -23,6 +24,7 @@ function App() {
       <AlertClock onClick={handleClick} />
       <Counter valore={2} valoreIniziale={3}></Counter>
       <Clock></Clock>
+      <MouseClicker></MouseClicker>
       {/* <input
         type="text"
         value={inputValue}

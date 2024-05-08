@@ -5,7 +5,6 @@ export default function Clock() {
 
   useEffect(() => {
     const intervalid = setInterval(() => {
-      console.log(`updatin time`);
       setTime(new Date());
     }, 1000);
     return () => {
