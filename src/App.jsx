@@ -4,6 +4,7 @@ import Hello from "./Hello";
 import Messaggio from "./Messaggio";
 import Welcome from "./Welcome";
 import AlertClock from "./AlertClock";
+import Clock from "./Clock";
 
 function App() {
   // const [inputValue, setInputValue] = useState("");
@@ -21,6 +22,7 @@ function App() {
       <Welcome name="John" age={12} />
       <AlertClock onClick={handleClick} />
       <Counter valore={2} valoreIniziale={3}></Counter>
+      <Clock></Clock>
       {/* <input
         type="text"
         value={inputValue}
