@@ -1,17 +1,21 @@
 import React, { useState } from "react"; // Importa React e useState
-import Counter from "./Counter";
+// import Counter from "./Counter";
 import Hello from "./Hello";
 import Messaggio from "./Messaggio";
 import Welcome from "./Welcome";
-import AlertClock from "./AlertClock";
+// import AlertClock from "./AlertClock";
 import Clock from "./Clock";
-import MouseClicker from "./MouseClicker";
+// import MouseClicker from "./MouseClicker";
 import Login from "./Login";
 function App() {
+  function handleDate(data) {
+    console.log("Dati di accesso:", data);
+    // Qui puoi eseguire la logica per il login, ad esempio, chiamando un'API
+  }
   // const [inputValue, setInputValue] = useState("");
-  const handleClick = () => {
-    alert(`Current Time: ${new Date().toLocaleString()}`);
-  };
+  // const handleClick = () => {
+  //   alert(`Current Time: ${new Date().toLocaleString()}`);
+  // };
   // const handleInputChange = (event) => {
   //   setInputValue(event.target.value);
   // };
@@ -26,7 +30,8 @@ function App() {
         <Counter valore={2} valoreIniziale={3}></Counter> */}
         <Clock></Clock>
         {/* <MouseClicker></MouseClicker> */}
-        <Login></Login>
+
+        <Login onSubmit={handleDate}></Login>
         {/* <input
         type="text"
         value={inputValue}

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
 import CounterDisplay from "./CounterDisplay";
 
 export default function Counter({ valore, valoreIniziale }) {
   const [counter, setCounter] = useState(valoreIniziale);
 
-  useEffect(() => {
-    console.log(`${counter}`);
-    return () => {
-      console.log(`value of counter is ${counter}`);
-    };
-  }, [counter]);
+  //   useEffect(() => {
+  //     console.log(`${counter}`);
+  //     return () => {
+  //       console.log(`value of counter is ${counter}`);
+  //     };
+  //   }, [counter]);
 
   const incrementaClick = () => {
     setCounter(counter + 1);

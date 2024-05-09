@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Welcome from "./Welcome";
-export default function Login() {
+// import Welcome from "./Welcome";
+export default function Login({ onSubmit }) {
   const [data, setData] = useState({
     username: ``,
     password: ``,
@@ -24,34 +24,62 @@ export default function Login() {
     });
   }
 
+  function handleReset() {
+    setData({
+      username: "",
+      password: "",
+      sissy: false,
+    });
+  }
+  function handleData(e) {
+    e.preventDefault();
+    onSubmit(data);
+  }
   return (
-    <div className="flex flex-col gap-2">
-      <input
-        value={data.username}
-        className=" w-max bg-slate-300"
-        type="text"
-        onChange={handleClick}
-        name="username"
-      />
-      <input
-        value={data.password}
-        type="text"
-        className=" w-max bg-slate-300"
-        onChange={handleClick}
-        name="password"
-      />
-      <input
-        type="checkbox"
-        onChange={handleClick}
-        className="w-max bg-slate-300"
-        name="sissy"
-        checked={data.sissy}
-        id=""
-      />
-      {/* <Welcome
+    <div className=" ">
+      <form action="" onSubmit={handleData}>
+        <div className="flex flex-col gap-4">
+          <input
+            value={data.username}
+            className=" w-max bg-slate-300"
+            type="text"
+            onChange={handleClick}
+            name="username"
+          />
+          <input
+            value={data.password}
+            type="text"
+            className=" w-max bg-slate-300"
+            onChange={handleClick}
+            name="password"
+          />
+          <input
+            type="checkbox"
+            onChange={handleClick}
+            className="w-max bg-slate-300"
+            name="sissy"
+            checked={data.sissy}
+            id=""
+          />
+          <div className="flex gap-2">
+            {" "}
+            <button
+              type="submit"
+              disabled={!data.username || !data.password}
+              className="rounded w-max bg-slate-100">
+              LOGIN
+            </button>
+            <button className="w-max bg-slate-50 rounded" onClick={handleReset}>
+              RESET
+            </button>
+          </div>
+        </div>
+
+        {/* <Welcome
         name={data.username.toLocaleUpperCase()}
         age={data.password}></Welcome>
       <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      </form>
     </div>
   );
 }
