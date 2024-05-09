@@ -7,6 +7,7 @@ import Welcome from "./Welcome";
 import Clock from "./Clock";
 // import MouseClicker from "./MouseClicker";
 import Login from "./Login";
+import UnctrolledForms from "./UncontrolledForm";
 function App() {
   function handleDate(data) {
     console.log("Dati di accesso:", data);
@@ -32,6 +33,7 @@ function App() {
         {/* <MouseClicker></MouseClicker> */}
 
         <Login onSubmit={handleDate}></Login>
+        <UnctrolledForms></UnctrolledForms>
         {/* <input
         type="text"
         value={inputValue}
