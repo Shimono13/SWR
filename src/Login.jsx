@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import Welcome from "./Welcome";
 export default function Login({ onSubmit }) {
   const [data, setData] = useState({
@@ -6,6 +6,14 @@ export default function Login({ onSubmit }) {
     password: ``,
     sissy: false,
   });
+
+  const inputRef = useRef(null);
+
+  // grazie all'effetto collaterale di useeffect e useref possiamo interagine con gli elemtni del dom node
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   function handleClick(e) {
     const name = e.target.name;
@@ -35,12 +43,14 @@ export default function Login({ onSubmit }) {
     e.preventDefault();
     onSubmit(data);
   }
+  console.log(inputRef);
   return (
     <div className=" ">
       <form action="" onSubmit={handleData}>
         <div className="flex flex-col gap-4">
           <input
             value={data.username}
+            ref={inputRef}
             className=" w-max bg-slate-300"
             type="text"
             onChange={handleClick}
