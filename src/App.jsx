@@ -10,6 +10,8 @@ import Login from "./Login";
 import UnctrolledForms from "./UncontrolledForm";
 import Refs from "./Refs";
 import Counter from "./Counter";
+import Colors from "./Colors";
+
 function App() {
   function handleDate(data) {
     console.log("Dati di accesso:", data);
@@ -29,21 +31,17 @@ function App() {
         <Hello />
         <Messaggio />
         <Welcome name="Simone" age={26} />
-        {/* /* <AlertClock onClick={handleClick} /> */}
         <Counter valore={2} valoreIniziale={3}></Counter>
-
         <Clock></Clock>
-        {/* <MouseClicker></MouseClicker> */}
-
         <Login onSubmit={handleDate}></Login>
         <Refs></Refs>
-        {/* <UnctrolledForms></UnctrolledForms> */}
-        {/* <input
-        type="text"
-        value={inputValue}
-        className=" text-2xl text-white bg-fuchsia-800 w-max"
-        onChange={handleInputChange}
-      /> */}
+        <Colors
+          colors={[
+            { id: 1, name: "Red" },
+            { id: 2, name: "Blue" },
+            { id: 3, name: "Green" },
+          ]}
+        />
       </div>
     </div>
   );

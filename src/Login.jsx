@@ -9,7 +9,7 @@ export default function Login({ onSubmit }) {
 
   const inputRef = useRef(null);
 
-  // grazie all'effetto collaterale di useeffect e useref possiamo interagine con gli elemtni del dom node
+  //  grazie all'effetto collaterale di useeffect e useref possiamo interagine con gli elemtni del dom node
 
   useEffect(() => {
     inputRef.current?.focus();
