@@ -12,6 +12,7 @@ import Refs from "./Refs";
 import Counter from "./Counter";
 import Colors from "./Colors";
 import TodoList from "./TodoList";
+import Container from "./Container";
 
 function App() {
   function handleDate(data) {
@@ -28,23 +29,25 @@ function App() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-slate-400">
-      <div className="flex flex-col gap-4 ">
-        <Hello />
-        <Messaggio />
-        <Welcome name="Simone" age={26} />
-        <Counter valore={2} valoreIniziale={3}></Counter>
-        <Clock></Clock>
-        <Login onSubmit={handleDate}></Login>
-        {/* <Refs></Refs> */}
-        {/* <Colors
+      <Container title={"Ciao, questo è il mio titolo"}>
+        <div className="flex flex-col gap-4">
+          <Hello />
+          <Messaggio />
+          <Welcome name="Simone" age={26} />
+          <Counter valore={2} valoreIniziale={3}></Counter>
+          <Clock></Clock>
+          <Login onSubmit={handleDate}></Login>
+          {/* <Refs></Refs> */}
+          {/* <Colors
           colors={[
             { id: 1, name: "Red" },
             { id: 2, name: "Blue" },
             { id: 3, name: "Green" },
           ]}
         /> */}
-        <TodoList></TodoList>
-      </div>
+          <TodoList></TodoList>
+        </div>
+      </Container>
     </div>
   );
 }

@@ -25,21 +25,21 @@ export default function TodoList() {
   return (
     <div>
       <div className="flex flex-row gap-2 mb-3">
-        <input type="text" ref={inputRef} />
+        <input className="bb bg-slate-300" type="text" ref={inputRef} />
         <button className="bg-green-500 rounded-lg" onClick={eventHandler}>
           Add Todo
         </button>
-        <button className="bg-red-600 rounded-lg" onClick={handleReset}>
+        <button className="bg-red-500 rounded-lg" onClick={handleReset}>
           Reset
         </button>
       </div>
-      <ul className="flex flex-col gap-2 bg-slate-400">
+      <ul className="flex flex-col gap-2  ">
         {todos.map((todo, index) => (
-          <li className="flex flex-row gap-4" key={index}>
+          <li
+            className="flex flex-col gap-6 bg-slate-300 rounded text-center"
+            key={index}>
             {todo}
-            <button
-              className="bg-slate-500 rounded-lg"
-              onClick={() => removeTask(index)}>
+            <button className="bg-red-500  " onClick={() => removeTask(index)}>
               remove task
             </button>
           </li>
