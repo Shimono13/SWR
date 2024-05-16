@@ -5,7 +5,7 @@ export default function GithubUser({ username }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const githubToken = "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";
+  // const githubToken = " ";
 
   useEffect(() => {
     setIsLoading(true);
@@ -13,7 +13,7 @@ export default function GithubUser({ username }) {
 
     fetch(`https://api.github.com/users/${username}`, {
       headers: {
-        Authorization: `Bearer ${githubToken}`,
+        // Authorization: `Bearer ${githubToken}`,
       },
     })
       .then((response) => {
