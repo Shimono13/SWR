@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GithubUser from "./GithubUser"; // Assuming you have a GithubUser component
+import GithubUser from "./GithubUser";
 
 export default function GithubUsers() {
   const [inputValue, setInputValue] = useState("");
@@ -9,6 +9,7 @@ export default function GithubUsers() {
     event.preventDefault();
     if (inputValue.trim() !== "") {
       setUsernames((prevUsernames) => [...prevUsernames, inputValue]);
+      setInputValue("");
       console.log(usernames);
     }
   };
@@ -24,7 +25,15 @@ export default function GithubUsers() {
           placeholder="Enter GitHub username"
         />
         <button className="sdsd bg-orange-300" type="submit">
-          Submit
+          Cerca Utente
+        </button>
+        <button
+          className="sdsd bg-orange-300"
+          type=""
+          onClick={() => {
+            setUsernames([]);
+          }}>
+          Resetta Lista
         </button>
       </form>
       <div className="flex flex-col gap-2">

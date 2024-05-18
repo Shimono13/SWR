@@ -1,5 +1,5 @@
 import React, { useState } from "react"; // Importa React e useState
-// import Counter from "./Counter";
+
 import Hello from "./Hello";
 import Messaggio from "./Messaggio";
 import Welcome from "./Welcome";
@@ -15,20 +15,10 @@ import TodoList from "./TodoList";
 import Container from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import GithubUsers from "./GithubUsers";
+import { Hookcounter } from "./Hookcounter";
+import Myform from "./Myform";
 
 function App() {
-  function handleDate(data) {
-    console.log("Dati di accesso:", data);
-    // Qui puoi eseguire la logica per il login, ad esempio, chiamando un'API
-  }
-  // const [inputValue, setInputValue] = useState("");
-  // const handleClick = () => {
-  //   alert(`Current Time: ${new Date().toLocaleString()}`);
-  // };
-  // const handleInputChange = (event) => {
-  //   setInputValue(event.target.value);
-  // };
-
   const [language, setLanguage] = useState(`en`);
 
   function handleSetLanguage(language) {
@@ -42,7 +32,8 @@ function App() {
           <Hello />
           <Messaggio />
           <Welcome name="Simone" age={26} />
-          <Counter valore={2} valoreIniziale={3}></Counter>
+
+          <Hookcounter />
           <div className="flex flex-row gap-2 border-2	">
             <button
               className=" bg-slate-300 rounded border-2 py-2 px-4 border-red-500 "
@@ -62,19 +53,10 @@ function App() {
               <Clock></Clock>
             </LanguageContext.Provider>
           </div>
-
-          {/* <Login onSubmit={handleDate}></Login> */}
-          {/* <Refs></Refs> */}
-          {/* <Colors
-          colors={[
-            { id: 1, name: "Red" },
-            { id: 2, name: "Blue" },
-            { id: 3, name: "Green" },
-          ]}
-        /> */}
           {/* <TodoList></TodoList> */}
         </div>
         <GithubUsers></GithubUsers>
+        {/* <Myform></Myform> */}
       </Container>
     </div>
   );
