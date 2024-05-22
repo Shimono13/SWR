@@ -19,6 +19,7 @@ import ShowGithubUser from "./ShowGithubUser";
 // import Myform from "./Myform";
 // import Location from "./Location";
 import { Link, Route, Routes } from "react-router-dom";
+import GithubUserList from "./GithubUserList";
 function App() {
   // const [language, setLanguage] = useState(`en`);
 
@@ -62,7 +63,7 @@ function App() {
     //   </Container>
     // </div>
 
-    <div className=" flex justify-center items-center min-h-screen bg-gray-100">
+    <div className=" flex flex-col justify-center items-center min-h-screen bg-gray-100">
       <nav>
         <ul className="grid grid-cols-2 w-max">
           <li className="list-item">
@@ -75,10 +76,11 @@ function App() {
             <Link to="/counter">Counter</Link>
           </li>
           <li className="list-item">
-            <Link to="/users/Shimono13">Show Github User</Link>
+            <Link to="/users/">Show Github Users</Link>
           </li>
         </ul>
       </nav>
+
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/:name" element={<Welcome />} />
@@ -87,7 +89,12 @@ function App() {
           path="/counter"
           element={<Counter valoreIniziale={0} valore={1} />}
         />
-        <Route path="users/:username" element={<ShowGithubUser />} />
+
+        <Route path="/users" element={<GithubUserList />}>
+          {/* Rotte nidificate per il componente GithubUserList */}
+          <Route index element={<p>Add a user and select it</p>} />
+          <Route path=":username" element={<ShowGithubUser />} />
+        </Route>
       </Routes>
     </div>
   );

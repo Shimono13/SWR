@@ -5,7 +5,7 @@ export function useGithubUser({ username }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const githubToken = "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 ";
+  const githubToken = "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 ";
 
   useEffect(() => {
     setIsLoading(true);
