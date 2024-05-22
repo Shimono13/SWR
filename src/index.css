@@ -1,3 +1,8 @@
+/* styles.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.list-item {
+  @apply p-2 text-gray-700 hover:bg-orange-400 bg-orange-300 m-4   text-center rounded-lg;
+}

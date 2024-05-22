@@ -18,7 +18,7 @@ import ShowGithubUser from "./ShowGithubUser";
 // import { Hookcounter } from "./Hookcounter";
 // import Myform from "./Myform";
 // import Location from "./Location";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 function App() {
   // const [language, setLanguage] = useState(`en`);
 
@@ -62,7 +62,23 @@ function App() {
     //   </Container>
     // </div>
 
-    <div>
+    <div className=" flex justify-center items-center min-h-screen bg-gray-100">
+      <nav>
+        <ul className="grid grid-cols-2 w-max">
+          <li className="list-item">
+            <Link to="/">Welcome</Link>
+          </li>
+          <li className="list-item">
+            <Link to="/login">Login</Link>
+          </li>
+          <li className="list-item">
+            <Link to="/counter">Counter</Link>
+          </li>
+          <li className="list-item">
+            <Link to="/users/Shimono13">Show Github User</Link>
+          </li>
+        </ul>
+      </nav>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/:name" element={<Welcome />} />
