@@ -1,8 +1,9 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import GithubUser from "./GithubUser";
 
 export default function ShowGithubUser() {
   const { username } = useParams();
 
-  return <GithubUser username={username}></GithubUser>;
+  return <GithubUser username={username} />; // Modificato da `username` a `username={username}`
 }

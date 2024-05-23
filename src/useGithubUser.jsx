@@ -1,56 +1,21 @@
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 
-export function useGithubUser({ username }) {
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const githubToken = "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 ";
+export function useGithubUser(username) {
+  const { data, error, mutate } = useSWR(
+    username ? `https://api.github.com/users/${username}` : null,
+    fetcher
+  );
 
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-
-    fetch(`https://api.github.com/users/${username}`, {
-      headers: {
-        Authorization: `Bearer ${githubToken}`,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Errore nella richiesta API");
-        }
-        return response.json();
-      })
-      .then((json) => {
-        if (json.login && json.avatar_url) {
-          setData({
-            login: json.login,
-            avatar_url: json.avatar_url,
-          });
-        } else {
-          console.log("Dati mancanti nella risposta API");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching GitHub user data:", error);
-        setError(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [username]); // Esegui l'effetto solo quando cambia il nome utente
-
-  if (isLoading) {
-    return <div>Caricamento...</div>;
-  }
-  if (error) {
-    // Se si verifica un errore, non renderizzare nulla
-    return { error };
+  function refreshUser() {
+    mutate();
   }
 
   return {
-    usernameProfiloGit: data.login,
-    immagineProfiloGit: data.avatar_url,
+    data,
+    error,
+    loading: !data && !error,
+    refreshUser,
   };
 }

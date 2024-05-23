@@ -1,19 +1,23 @@
 import { useGithubUser } from "./useGithubUser";
 
 export default function GithubUser({ username }) {
-  const { usernameProfiloGit, immagineProfiloGit, isLoading, error } =
-    useGithubUser({ username });
+  const { data, loading, error, onFetchUser } = useGithubUser(username);
 
-  if (isLoading) {
-    return <div>Caricamento...</div>;
+  function handleGetUserData() {
+    onFetchUser();
   }
   if (error) {
-    return null;
+    console.error("Error in useGithubUser:", error); // Log error
   }
   return (
     <div className="flex flex-col gap-2">
-      <h3>{usernameProfiloGit}</h3>
-      <img className="w-2/5" src={immagineProfiloGit} alt="" />
+      <button onClick={handleGetUserData}>Load user data</button>
+      {loading && <h1>Loading...</h1>}
+      {error && <h1>There has been an error</h1>}
+      {
+        (data && <h3>{data.login}</h3>,
+        (<img className="w-2/5" src={data.avatar} alt="" />))
+      }
     </div>
   );
 }
